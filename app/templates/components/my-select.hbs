@@ -1,0 +1,23 @@
+<select
+  id="{{selectId}}"
+  onchange={{action 'change'}}
+  class="{{selectClass}}">
+  {{#if prompt}}
+    <option disabled={{promptDisable}} selected={{is-not selection}} value="">
+      {{prompt}}
+    </option>
+  {{/if}}
+
+  {{#each content key="@identity" as |item|}}
+    {{#if _contentIsObject}}
+      <option value="{{read-path item optionValuePath}}"
+              selected={{is-equal (read-path item optionValuePath) value}}>
+        {{read-path item optionLabelPath}}
+       </option>
+    {{else}}
+      <option value="{{item}}" selected={{is-equal item value}}>
+        {{item}}
+       </option>
+    {{/if}}
+  {{/each}}
+</select>

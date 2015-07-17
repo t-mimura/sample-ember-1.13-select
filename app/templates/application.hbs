@@ -1,0 +1,12 @@
+<h2 id="title">Welcome to Ember.js</h2>
+
+{{my-select
+  content=model
+  optionLabelPath="label"
+  optionValuePath="value"
+  value=value
+  prompt="please select."
+  }}
+
+<p>{{value}}</p>
+{{outlet}}
