@@ -1,5 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  value: null
+  controllsValue: null,
+  // if initial value is exists.
+  // controllsValue: 2
+
+  actions: {
+    setValue: function(value) {
+      this.set('controllsValue', value);
+    }
+  }
 });

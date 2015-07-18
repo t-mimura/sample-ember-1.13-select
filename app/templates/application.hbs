@@ -4,9 +4,11 @@
   content=model
   optionLabelPath="label"
   optionValuePath="value"
-  value=value
+  value=controllsValue
+  action=(action (mut controllsValue))
   prompt="please select."
   }}
 
-<p>{{value}}</p>
+<p>{{controllsValue}}</p>
+<p><button {{action 'setValue' null}}>clear value.</button><button {{action 'setValue' 1}}>value is 1.</button><button {{action 'setValue' 2}}>value is 2.</button></p>
 {{outlet}}

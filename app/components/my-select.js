@@ -12,6 +12,8 @@ export default Ember.Component.extend({
   selectId: null,
   value: null,
 
+  _value: Ember.computed.reads('value'),
+
   _contentIsObject: function() {
     var hasOptionValuePath = !!this.get('optionValuePath');
     var hasOptionLabelPath = !!this.get('optionLabelPath');
@@ -29,7 +31,7 @@ export default Ember.Component.extend({
     change(event) {
       const value = event.currentTarget.value || null;
       const changeCallback = this.get('action');
-      this.set('value', value);
+      this.set('_value', value);
       changeCallback(value);
     }
   }
