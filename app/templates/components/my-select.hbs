@@ -3,7 +3,7 @@
   onchange={{action 'change'}}
   class="{{selectClass}}">
   {{#if prompt}}
-    <option disabled={{promptDisable}} selected={{is-not _value}} value="">
+    <option disabled={{promptDisable}} selected={{is-not value}} value="">
       {{prompt}}
     </option>
   {{/if}}
@@ -11,11 +11,11 @@
   {{#each content key="@identity" as |item|}}
     {{#if _contentIsObject}}
       <option value="{{read-path item optionValuePath}}"
-              selected={{is-equal (read-path item optionValuePath) _value}}>
+              selected={{is-equal (read-path item optionValuePath) value}}>
         {{read-path item optionLabelPath}}
        </option>
     {{else}}
-      <option value="{{item}}" selected={{is-equal item _value}}>
+      <option value="{{item}}" selected={{is-equal item value}}>
         {{item}}
        </option>
     {{/if}}
